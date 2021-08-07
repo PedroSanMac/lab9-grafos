@@ -69,5 +69,17 @@ public class GrafoAdyacencia<T> {
 	public String toString() {
 		return this.listaVertices.toString();
 	}
+	//*******
+	public boolean estaEn(GrafoAdyacencia<T> x) {
+		Vertice<T> nuevo = x.listaVertices.primero.getData();
+		if(this.listaVertices.search(nuevo) != null) {
+			//System.out.println("Primer vertice si esta en el grafo..");
+			return true;
+		}else {
+			//comparar si estan todos los elementos.
+		}
+		return false;
+	}
+	
 
 }
