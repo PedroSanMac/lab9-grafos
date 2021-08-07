@@ -19,6 +19,9 @@ public class TestGrafo {
 		
 		System.out.println("Grafo:\n" + g);
 		
+		g.DFS("aqp");
+		System.out.println();
+		
 	}
 
 }

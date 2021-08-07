@@ -1,10 +1,10 @@
 
-
 public class GrafoAdyacencia<T> {
 	
 	public class Vertice<E>{//clase vertice
         public E data;
         public ListaEnlazada<Arista<E>> listAdj;
+        int estado; //0=noExplorado, 1=Explorado
         public Vertice(E val){
             this.data = val;
             this.listAdj = new ListaEnlazada<Arista<E>>();
@@ -22,6 +22,8 @@ public class GrafoAdyacencia<T> {
     }
 	private class Arista<E>{//clase arista
 		Vertice<E> refDest;
+		int costo = -1;
+		int estado; //0=sinExplorar, 1=Descubierto, 2=AristaBack
 		public Arista(Vertice<E> refDestino) {
 			this.refDest = refDestino;
 		}
@@ -68,6 +70,40 @@ public class GrafoAdyacencia<T> {
 	}
 	public String toString() {
 		return this.listaVertices.toString();
+	}
+	//****METODOS para DFS
+	private void initLable() {
+		Nodo<Vertice<T>> aux = this.listaVertices.primero;
+		for(;aux !=null; aux= aux.getNext()) {
+			aux.data.estado = 0;
+			Nodo<GrafoAdyacencia<T>.Arista<T>> auxE = aux.data.listAdj.primero;
+			for(;auxE != null; auxE = auxE.getNext())
+				auxE.data.estado = 0;
+		}
+	}
+	public void DFS(T data) {
+		Vertice<T> v = this.listaVertices.search(new Vertice<T>(data));
+		if(v == null) {//existe el vertice donde empezar?
+			System.out.println("VERTICE NO EXISTE..");
+			return;
+		}
+		initLable();
+		DFSRec(v);
+	}
+	private void DFSRec(Vertice<T> v) {
+		v.estado = 1;
+		System.out.print(v.data+", ");
+		Nodo<Arista<T>> e = v.listAdj.primero;
+		for(;e != null; e = e.getNext()) {
+			if(e.data.estado == 0) {
+				Vertice<T> w = e.data.refDest;
+				if(w.estado == 0) {
+					e.data.estado = 1;
+					DFSRec(w);
+				}else
+					e.data.estado = 2;
+			}
+		}
 	}
 
 }

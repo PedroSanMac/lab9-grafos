@@ -1,22 +1,6 @@
 
 public class ListaEnlazada<T> {
 	
-	class Nodo<E>{
-		public E data;
-		public Nodo<E> next = null;
-		public Nodo(E val, Nodo<E> sig){
-            this.data = val;
-            this.next = sig;
-        }
-		Nodo<E> getNext(){
-			return this.next;
-		}
-		public E getData() {
-			return data;
-		}	
-	}
-	
-	
 	protected Nodo<T> primero;
 	
 	public ListaEnlazada() {
