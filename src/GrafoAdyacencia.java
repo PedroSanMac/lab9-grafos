@@ -23,7 +23,7 @@ public class GrafoAdyacencia<T> {
 	private class Arista<E>{//clase arista
 		Vertice<E> refDest;
 		int costo = -1;// se usa en grafos ponderados.
-		int estado; //0=sinExplorar, 1=Descubierto, 2=AristaBack
+		int estado; //0=sinExplorar, 1=Descubierto, 2=AristaCross
 		public Arista(Vertice<E> refDestino) {
 			this(refDestino,-1);
 		}
@@ -102,17 +102,21 @@ public class GrafoAdyacencia<T> {
 		BFSRec(v);
 	}
 	private void BFSRec(Vertice<T> v) {
+		if(v.estado == 0)
+			System.out.print(v.data+", ");
 		v.estado = 1;
-		System.out.print(v.data+", ");
 		Nodo<Arista<T>> e = v.listAdj.primero;
 		for(;e != null; e = e.getNext()) {
 			if(e.data.estado == 0) {
+				e.data.estado = 1;
+				BFSRec(e.data.refDest);
+				/*
 				Vertice<T> w = e.data.refDest;
 				if(w.estado == 0) {
 					e.data.estado = 1;
-					DFSRec(w);
+					BFSRec(w);
 				}else
-					e.data.estado = 2;
+					e.data.estado = 2;*/
 			}
 		}
 	}

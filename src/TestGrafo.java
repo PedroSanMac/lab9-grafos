@@ -19,9 +19,31 @@ public class TestGrafo {
 		
 		System.out.println("Grafo:\n" + g);
 		
-		//g.DFS("aqp");
-		//System.out.println();
+		g.BFS("aqp");
+		System.out.println();
+		/*
+		g.insertVertice("A");
+		g.insertVertice("B");
+		g.insertVertice("C");
+		g.insertVertice("D");
+		g.insertVertice("E");
+		g.insertVertice("F");
+		g.insertVertice("G");
+		g.insertVertice("H");
+		g.insertArista("A", "B");
+		g.insertArista("A", "D");
+		g.insertArista("D", "E");
+		g.insertArista("D", "F");
+		g.insertArista("D", "B");
+		g.insertArista("B", "C");
+		g.insertArista("C", "H");
+		g.insertArista("H", "F");
+		g.insertArista("F", "G");
+		System.out.println("Grafo:\n" + g);
 		
+		g.BFS("A");
+		System.out.println();
+		*/
 	}
 
 }
