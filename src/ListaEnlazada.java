@@ -1,4 +1,3 @@
-import ListaEnlazada.Enlace;
 
 public class ListaEnlazada<T> {
 	
