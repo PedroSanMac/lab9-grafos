@@ -11,16 +11,16 @@ public class TestGrafo {
 		g.insertVertice("piura");
 		g.insertVertice("tarapoto");
 		
-		g.insertArista("lima", "aqp");
-		g.insertArista("cusco", "aqp");
-		g.insertArista("piura", "lima");
-		g.insertArista("cusco", "lima");
-		g.insertArista("piura", "tarapoto");
+		g.insertArista("lima", "aqp",10);
+		g.insertArista("cusco", "aqp",3);
+		g.insertArista("piura", "lima",5);
+		g.insertArista("cusco", "lima",8);
+		g.insertArista("piura", "tarapoto", 9);
 		
 		System.out.println("Grafo:\n" + g);
 		
-		g.DFS("aqp");
-		System.out.println();
+		//g.DFS("aqp");
+		//System.out.println();
 		
 	}
 
