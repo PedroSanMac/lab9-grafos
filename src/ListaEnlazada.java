@@ -13,8 +13,7 @@ public class ListaEnlazada<T> {
 		}
 		public E getData() {
 			return data;
-		}
-		
+		}	
 	}
 	
 	
